@@ -1,9 +1,11 @@
 import express from 'express';
 import cors from "cors";
 import { app } from './api/routes';
+import path from 'path';
 
 const exp = express();
 
+app.use('/database', express.static(path.join(__dirname, './src/database')));
 exp.use(express.json());
 exp.use(cors());
 exp.use(app)
