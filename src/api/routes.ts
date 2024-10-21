@@ -25,6 +25,8 @@ app.get("/users/profile", jwt.ValidateToken, controllerUser.Profile);
 // Reservas (appointments)...
 app.get("/appointments", jwt.ValidateToken, controllerAppointment.ListarByUser);
 app.post("/appointments", jwt.ValidateToken, controllerAppointment.Inserir);
+app.delete("/appointments/:id_appointment", jwt.ValidateToken, controllerAppointment.Excluir);
+
 
 
 app.get('/ping', (req, res) =>

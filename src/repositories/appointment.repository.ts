@@ -38,4 +38,14 @@ async function Inserir(id_user: any,
     return appointment[0];
 }
 
-export default { Listar, Inserir }
+async function Excluir(id_user: any, id_appointment: any) {
+
+    let sql = `delete from appointments 
+    where id_appointment=$1 and id_user=$2`;
+
+    await database.query(sql, [id_appointment, id_user]);
+
+    return { id_appointment };
+}
+
+export default { Listar, Inserir, Excluir }
