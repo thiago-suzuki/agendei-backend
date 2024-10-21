@@ -23,7 +23,7 @@ function ValidateToken(req: any, res: any, next: any) {
         if (err)
             return res.status(401).json({ error: "Token inválido" });
 
-        req.id_user = tokenDecoded.id_user;
+        req.idUser = tokenDecoded.id_user;
 
         next();
     });
