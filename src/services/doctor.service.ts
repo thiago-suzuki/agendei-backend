@@ -15,23 +15,23 @@ async function Inserir(name: any, specialty: any, icon: any) {
     return doctor;
 }
 
-async function Editar(id_doctor: any, name: any, specialty: any, icon: any) {
+async function Editar(idDoctor: any, name: any, specialty: any, icon: any) {
 
-    const doctor = await doctorRepository.Editar(id_doctor, name, specialty, icon);
-
-    return doctor;
-}
-
-async function Excluir(id_doctor: any) {
-
-    const doctor = await doctorRepository.Excluir(id_doctor);
+    const doctor = await doctorRepository.Editar(idDoctor, name, specialty, icon);
 
     return doctor;
 }
 
-async function ListarServicos(id_doctor: any) {
+async function Excluir(idDoctor: any) {
 
-    const serv = await doctorRepository.ListarServicos(id_doctor);
+    const doctor = await doctorRepository.Excluir(idDoctor);
+
+    return doctor;
+}
+
+async function ListarServicos(idDoctor: any) {
+
+    const serv = await doctorRepository.ListarServicos(idDoctor);
 
     return serv;
 }

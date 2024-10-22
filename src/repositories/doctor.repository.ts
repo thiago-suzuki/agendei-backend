@@ -34,38 +34,38 @@ async function Inserir(name: any, specialty: any, icon: any) {
     return doctor[0];
 }
 
-async function Editar(id_doctor: any, name: any, specialty: any, icon: any) {
+async function Editar(idDoctor: any, name: any, specialty: any, icon: any) {
 
     let sql = `update doctors set name=$1, specialty=$2, icon=$3
 where id_doctor = $4`;
 
-    await database.query(sql, [name, specialty, icon, id_doctor]).then((result) => {
+    await database.query(sql, [name, specialty, icon, idDoctor]).then((result) => {
         return camelcaseKeys(result.rows);
     });
 
-    return { id_doctor };
+    return { idDoctor };
 }
 
-async function Excluir(id_doctor: any) {
+async function Excluir(idDoctor: any) {
 
     let sql = `delete from doctors where id_doctor = $1`;
 
-    await database.query(sql, [id_doctor]).then((result) => {
+    await database.query(sql, [idDoctor]).then((result) => {
         return camelcaseKeys(result.rows);
     });
 
-    return { id_doctor };
+    return { idDoctor };
 }
 
-async function ListarServicos(id_doctor: any) {
+async function ListarServicos(idDoctor: any) {
 
-    let sql = `select d.id_service, s.description, d.price
+    let sql = `select d.idService, s.description, d.price
     from doctors_services d
     join services s on (s.id_service = d.id_service)
     where d.id_doctor = $1
     order by s.description`;
 
-    const serv = await database.query(sql, [id_doctor]).then((result) => {
+    const serv = await database.query(sql, [idDoctor]).then((result) => {
         return camelcaseKeys(result.rows);
     });
 

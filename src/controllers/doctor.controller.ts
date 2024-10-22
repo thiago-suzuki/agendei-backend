@@ -23,27 +23,27 @@ async function Inserir(req: Request, res: Response) {
 
 async function Editar(req: Request, res: Response) {
 
-    const id_doctor = req.params.id_doctor;
+    const idDoctor = req.params.idDoctor;
     const { name, specialty, icon } = req.body;
 
-    const doctor = await doctorService.Editar(id_doctor, name, specialty, icon);
+    const doctor = await doctorService.Editar(idDoctor, name, specialty, icon);
 
     res.status(200).json(doctor);
 }
 
 async function Excluir(req: Request, res: Response) {
 
-    const id_doctor = req.params.id_doctor;
+    const idDoctor = req.params.idDoctor;
 
-    const doctor = await doctorService.Excluir(id_doctor);
+    const doctor = await doctorService.Excluir(idDoctor);
 
     res.status(200).json(doctor);
 }
 
 async function ListarServicos(req: Request, res: Response) {
 
-    const id_doctor = req.params.id_doctor;
-    const serv = await doctorService.ListarServicos(id_doctor);
+    const idDoctor = req.params.idDoctor;
+    const serv = await doctorService.ListarServicos(idDoctor);
 
     res.status(200).json(serv);
 }

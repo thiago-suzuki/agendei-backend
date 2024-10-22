@@ -24,8 +24,8 @@ async function Login(req: Request, res: Response) {
 
 async function Profile(req: any, res: Response) {
 
-    const id_user = req.idUser;
-    const user = await serviceUser.Profile(id_user);
+    const idUser = req.idUser;
+    const user = await serviceUser.Profile(idUser);
 
     res.status(200).json(user);
 }

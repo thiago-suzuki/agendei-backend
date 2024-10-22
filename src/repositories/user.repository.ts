@@ -27,11 +27,11 @@ async function ListarByEmail(email: any) {
         return user[0];
 }
 
-async function Profile(id_user: any) {
+async function Profile(idUser: any) {
 
     let sql = `select id_user, name, email from users where id_user = $1`;
 
-    const user = await database.query(sql, [id_user]).then((result) => {
+    const user = await database.query(sql, [idUser]).then((result) => {
         return camelcaseKeys(result.rows);
     });
 

@@ -13,9 +13,9 @@ app.use(bodyParser.json());
 // Doctors...
 app.get("/doctors", jwt.ValidateToken, doctorController.Listar);
 app.post("/doctors", jwt.ValidateToken, doctorController.Inserir);
-app.put("/doctors/:id_doctor", jwt.ValidateToken, doctorController.Editar);
-app.delete("/doctors/:id_doctor", jwt.ValidateToken, doctorController.Excluir);
-app.get("/doctors/:id_doctor/services", jwt.ValidateToken, doctorController.ListarServicos);
+app.put("/doctors/:idDoctor", jwt.ValidateToken, doctorController.Editar);
+app.delete("/doctors/:idDoctor", jwt.ValidateToken, doctorController.Excluir);
+app.get("/doctors/:idDoctor/services", jwt.ValidateToken, doctorController.ListarServicos);
 
 // Users...
 app.post("/users/register", controllerUser.Inserir);
@@ -25,7 +25,7 @@ app.get("/users/profile", jwt.ValidateToken, controllerUser.Profile);
 // Reservas (appointments)...
 app.get("/appointments", jwt.ValidateToken, controllerAppointment.ListarByUser);
 app.post("/appointments", jwt.ValidateToken, controllerAppointment.Inserir);
-app.delete("/appointments/:id_appointment", jwt.ValidateToken, controllerAppointment.Excluir);
+app.delete("/appointments/:idAppointment", jwt.ValidateToken, controllerAppointment.Excluir);
 
 
 

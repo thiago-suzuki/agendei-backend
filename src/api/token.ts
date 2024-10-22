@@ -2,8 +2,8 @@ import jwt from "jsonwebtoken";
 
 const secretToken = "jornadaJS123";
 
-function CreateToken(id_user: any) {
-    const token = jwt.sign({ id_user }, secretToken, {
+function CreateToken(idUser: any) {
+    const token = jwt.sign({ idUser }, secretToken, {
         expiresIn: 9999999
     });
 
@@ -23,7 +23,7 @@ function ValidateToken(req: any, res: any, next: any) {
         if (err)
             return res.status(401).json({ error: "Token inválido" });
 
-        req.idUser = tokenDecoded.id_user;
+        req.idUser = tokenDecoded.idUser;
 
         next();
     });

@@ -4,30 +4,30 @@ import { Request, Response } from "express";
 
 async function ListarByUser(req: any, res: Response) {
 
-    const id_user = req.idUser;
-    const appointments = await serviceAppointment.Listar(id_user);
+    const idUser = req.idUser;
+    const appointments = await serviceAppointment.Listar(idUser);
 
     res.status(200).json(appointments);
 }
 
 async function Inserir(req: any, res: Response) {
 
-    const id_user = req.idUser;
-    const { id_doctor, id_service,
-        booking_date, booking_hour } = req.body;
+    const idUser = req.idUser;
+    const { idDoctor, idService,
+        bookingDate, bookingHour } = req.body;
 
-    const appointment = await serviceAppointment.Inserir(id_user,
-        id_doctor, id_service, booking_date, booking_hour);
+    const appointment = await serviceAppointment.Inserir(idUser,
+        idDoctor, idService, bookingDate, bookingHour);
 
     res.status(201).json(appointment);
 }
 
 async function Excluir(req: any, res: Response) {
 
-    const id_user = req.idUser;
-    const id_appointment = req.params.id_appointment;
+    const idUser = req.idUser;
+    const idAppointment = req.params.idAppointment;
 
-    const appointment = await serviceAppointment.Excluir(id_user, id_appointment);
+    const appointment = await serviceAppointment.Excluir(idUser, idAppointment);
 
     res.status(200).json(appointment);
 }
