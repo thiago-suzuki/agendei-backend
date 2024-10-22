@@ -3,7 +3,7 @@ import camelcaseKeys from 'camelcase-keys';
 
 async function Listar(idUser: any) {
 
-    let sql = `select a.idAppointment, s.description as service, 
+    let sql = `select a.id_appointment, s.description as service, 
     d.name as doctor, d.specialty,
    a.bookingDate, a.bookingHour, u.name as user, ds.price
 from appointments a
